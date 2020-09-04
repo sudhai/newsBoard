@@ -23,7 +23,7 @@ public class NewsController {
 		String API_KEY = "a8462e92b06e456c92ec2b983d84162d";
 		final String uri = "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=" + API_KEY;
 
-		System.out.println("uri" + uri);
+		System.out.println("uri: " + uri);
 //	    RestTemplate restTemplate = new RestTemplate();
 //	    JsonNode result = restTemplate.getForObject(uri, JsonNode.class);
 
@@ -33,8 +33,9 @@ public class NewsController {
 		ResponseEntity<NewsResponse> response = new RestTemplate(reqFactory).exchange(uri, HttpMethod.GET, null,
 				NewsResponse.class);
 		// String responseCode = response.getStatusCode();
-
-		System.out.println(response);
+		System.out.println(response.getBody());
+		repo.save(response.getBody().getArticles());
+		
 		
 		return "Data is loaded";
 
