@@ -1,5 +1,6 @@
 package com.newsBoard;
 
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 //import org.springframework.data.mongodb.core.mapping.Document;
 @Entity
@@ -35,6 +38,8 @@ public class Article {
 
 	private String title;
 
+	@JsonIgnore
+	@Column(length = 6000)
 	private String description;
 
 	private String url;
