@@ -1,30 +1,16 @@
 package com.newsBoard;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Source")
 public class Source {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@NotNull
-	private long _id;
 
+	@Id
 	private String id;
 	private String name;
-
-	public long get_id() {
-		return _id;
-	}
-
-	public void set_id(long _id) {
-		this._id = _id;
-	}
 
 	public String getId() {
 		return id;

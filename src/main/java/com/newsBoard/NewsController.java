@@ -1,5 +1,7 @@
 package com.newsBoard;
 
+import java.util.List;
+
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +44,9 @@ public class NewsController {
 	}
 
 	@RequestMapping("/getNewsByDate")
-	public Article getNewsByDate(@RequestParam String date) {
-		return null;
+	public List<Article> getNewsByDate(@RequestParam String date) {
+		List<Article> l = repo.findbyDate(date);
+		return l;
 	}
 
 	@RequestMapping("/getNewsByCity")

@@ -31,7 +31,7 @@ public class Article {
 
 	@OneToOne
 	@ElementCollection
-	@JoinColumn(name = "sId", referencedColumnName = "_id")
+	@JoinColumn(name = "sId", referencedColumnName = "id")
 	private Source source;
 
 	private String author;
